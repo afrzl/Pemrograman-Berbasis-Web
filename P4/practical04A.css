@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  color: navy;
+  margin-top: 1em;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: navy;
+}
+
+nav ol {
+  display: flex;
+  width: fit-content;
+  list-style: none;
+  background-color: #ccd;
+  padding: 0 1em;
+  gap: 2rem;
+}
+
+nav li {
+  background-color: #aab;
+  list-style-type: none;
+}
+
+nav li a {
+  text-decoration: none !important;
+}
+
+nav li a:hover {
+  background-color: yellow;
+}
+
+#part1 p {
+  background-color: lightyellow;
+  padding: 0.3rem;
+}
+
+#part2 ul {
+  padding-left: 1rem;
+}
+
+#part2 ol {
+  counter-reset: item;
+  padding-left: 0;
+}
+
+#part2 ol li {
+  display: block;
+}
+
+#part2 ol li:before {
+  content: counters(item, '.') '. ';
+  counter-increment: item;
+}
+
+dt,
+dd {
+  padding: 0.25em 0.5em;
+}
+
+dt {
+  background-color: navy;
+  color: white;
+  border-radius: 0.5em 0;
+}
+
+dd {
+  margin-left: 0;
+  background-color: #ccd;
+  border-radius: 0 0.5em;
+}
+
+dt:nth-child(3) {
+  margin-top: 0.5em;
+}

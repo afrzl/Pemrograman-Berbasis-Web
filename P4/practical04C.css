@@ -1,0 +1,67 @@
+nav {
+  background-color: #010417;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+}
+
+nav li {
+  float: left;
+  margin: 0;
+}
+
+nav a {
+  display: flex;
+  height: 30px;
+  padding: 5px 1.5em;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.active,
+nav a:hover {
+  background-color: #c74451;
+}
+
+#content ol li {
+  list-style: none;
+  padding: 1em 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.judul {
+  font-weight: bold !important;
+}
+
+.tanggal {
+  font-style: italic;
+}
+
+footer {
+  background-color: #010417;
+  color: white !important;
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+footer p {
+  margin: 0 0 0.25em;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 0.5fr 5fr;
+}
+
+aside ol {
+  list-style-type: none;
+}
