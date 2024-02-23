@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>Hello World</title>
+  </head>
+
+  <body>
+    <p id="alert" style="color: red;"></p>
+    <script id="s1">
+      // Script with id s1
+    </script>
+    <p>Our first JavaScript script</p>
+    <script id="s2">
+      // Script with id s2
+      user = '<your name>'
+      document.writeln('<p><b>Hello ' + user + '<br>\nHello World!</b></p>')
+      try {
+        document.writeln('(1) The value of userAge is: ' + userAge + '<br>')
+      } catch (error) {
+        document.getElementById('alert').innerHTML = error.message
+      }
+      document.writeln('(2) This statement is executed<br>')
+    </script>
+    <script id="s3">
+      // Script with id s3
+    </script>
+    <p>This is the rest of the page</p>
+    <noscript>JavaScript not supported or disabled</noscript>
+  </body>
+</html>
