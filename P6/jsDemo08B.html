@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>JavaScript 08B</title>
+    <script>
+      // Function sumAll has no minimum number of arguments,
+      // but accepts an arbitrary number of arguments
+      function sumAll() {
+        sum = 0
+        for (var i = 0; i < arguments.length; i++) sum = sum + arguments[i]
+        return sum
+      }
+      document.writeln('sum = ' + sum + '<br>')
+      /*
+        1c. reference error karena variabel sum bersifat global hanya di function sumAll() saja. tidak berlaku diluar function
+      */
+    </script>
+  </head>
+
+  <body>
+    <script>
+      document.writeln('sumAll() = ' + sumAll() + '<br>')
+      document.writeln('sumAll(2) = ' + sumAll(2) + '<br>')
+      document.writeln('sumAll(2,3)  =  ' + sumAll(2, 3) + '<br>')
+      document.writeln('sumAll(2,3,4) = ' + sumAll(2, 3, 4) + '<br>')
+    </script>
+    <noscript>JavaScript not supported or enabled</noscript>
+  </body>
+</html>

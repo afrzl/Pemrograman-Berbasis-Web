@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>JavaScript 08C</title>
+    <style>
+      table {
+        border: 1px;
+        padding: 5px;
+      }
+    </style>
+    <script>
+      function bubble_sort(array) {
+        function swap(array, i, j) {
+          // swap can change array because array is
+          // a local variable of the outer function bubble_sort
+          var tmp = array[i]
+          array[i] = array[j]
+          array[j] = tmp
+        }
+        if (!(array && array.constructor == Array))
+          throw 'Argument not an array'
+        for (var i = 0; i < array.length; i++)
+          for (var j = 0; j < array.length - i; j++)
+            if (array[j + 1] < array[j]) swap(array, j, j + 1)
+        return array
+      }
+
+      //JAWABAN 1D
+      function bubble_sort2() {
+        return bubble_sort(this)
+      }
+
+      const numberSortFn = (a, b) => {
+        if (a < b) {
+          return -1
+        } else if (a === b) {
+          return 0
+        } else {
+          return 1
+        }
+      }
+
+      //JAWABAN 1H
+      function sum_array() {
+        sum = 0
+        this.forEach((element) => (sum += parseInt(element)))
+        return sum
+      }
+
+      //JAWABAN 1I
+      function peek() {
+        return this[0]
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sorting Arrays</h1>
+    <script>
+      /* 1A */
+      numbers = [20, 4, 3, 9, 6, 8, 5, 10]
+      document.writeln('<h2>bubble_sort function</h2>')
+      document.writeln('<table>\n<tbody>')
+      document.writeln(
+        '<tr><td>array before sorting' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      // Sort a copy of array
+      sorted = bubble_sort(numbers.slice())
+      document.writeln(
+        '<tr><td>array after sorting of copy' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      sorted = bubble_sort(numbers)
+      document.writeln(
+        '<tr><td>array after sorting of itself' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '<\/td></tr>',
+      )
+      document.writeln(
+        '<tr><td>sorted array</td><td>' + sorted.join(', ') + '</td></tr>',
+      )
+      document.writeln('</tbody>\n</table>')
+      /* END OF 1A */
+
+      /* 1D */
+      Array.prototype.bubble_sort = bubble_sort2
+      numbers = [20, 4, 3, 9, 6, 8, 5, 10]
+      document.writeln('<h2>bubble sort array prototype method</h2>')
+      document.writeln('<table>\n<tbody>')
+      document.writeln(
+        '<tr><td>array  before sorting' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      // Sort a copy of array
+      sorted = numbers.slice().bubble_sort()
+      document.writeln(
+        '<tr><td>array  after  sorting of copy' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      sorted = numbers.bubble_sort()
+      document.writeln(
+        '<tr><td>array    after    sorting  of itself' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      document.writeln(
+        '<tr><td>sorted array</td><td>' + sorted.join(', ') + '</td></tr>',
+      )
+      document.writeln('</tbody>\n</table>')
+      /* END OF 1D */
+
+      /* 1E */
+      numbers = [20, 4, 3, 9, 6, 8, 5, 10]
+      document.writeln('<h2>pre-defined array sort method</h2>')
+      document.writeln('<table>\n<tbody>')
+      document.writeln(
+        '<tr><td>array  before sorting' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      // Sort a copy of array
+      sorted = numbers.slice().sort(numberSortFn)
+      /* PENJELASAN
+        sumber: https://www.freecodecamp.org/news/how-does-the-javascript-sort-function-work/#:~:text=What%20is%20the%20sort(),on%20their%20string%20Unicode%20values.
+        Karena method sort akan mendefinisikan isi array sebagai string maka akan berbeda hasilnya.
+        Namun, disini telah dibuat function numberSortFn sehingga method sort akan dikustomisasi untuk mengurutkan angka
+      */
+      document.writeln(
+        '<tr><td>array    after    sorting  of copy' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      sorted = numbers.sort(numberSortFn)
+      document.writeln(
+        '<tr><td>array    after    sorting  of itself' +
+          '</td><td>' +
+          numbers.join(', ') +
+          '</td></tr>',
+      )
+      document.writeln(
+        '<tr><td>sorted array</td><td>' + sorted.join(', ') + '</td></tr>',
+      )
+      document.writeln('</tbody>\n</table>')
+      /* END OF 1D */
+
+      /* 1F */
+      Array.prototype.sum = sum_array
+      document.writeln('<h2>array prototype sum function</h2>')
+      // For array0 the expected result is 0
+      array0 = []
+      document.writeln(
+        '<div>[' + array0 + '].sum()  =  ' + array0.sum() + '</div>',
+      )
+      // For array1  the expected result is 6
+      array1 = [3, 2, 1]
+      document.writeln(
+        '<div>[' + array1 + '].sum()  =  ' + array1.sum() + '</div>',
+      )
+      // For array2  the expected result is 6
+      array2 = [3, '2M', [1, 0]]
+      document.writeln(
+        '<div>[' + array2 + '].sum()  =  ' + array2.sum() + '</div>',
+      )
+      /* END OF 1F */
+
+      /* 1I */
+      Array.prototype.peek = peek
+      document.writeln('<h2>array prototype peek function</h2>')
+      // For array0 the expected result is 0
+      array0 = []
+      document.writeln(
+        '<div>[' + array0 + '].peek()  =  ' + array0.peek() + '</div>',
+      )
+      // For array1  the expected result is 6
+      array1 = [3, 2, 1]
+      document.writeln(
+        '<div>[' + array1 + '].peek()  =  ' + array1.peek() + '</div>',
+      )
+      // For array2  the expected result is 6
+      array2 = [3, '2M', [1, 0]]
+      document.writeln(
+        '<div>[' + array2 + '].peek()  =  ' + array2.peek() + '</div>',
+      )
+      /* END OF 1I */
+    </script>
+  </body>
+</html>

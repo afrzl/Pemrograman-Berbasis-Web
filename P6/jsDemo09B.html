@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>JavaScript 09B: Objects</title>
+    <script>
+      class Employee {
+        static totalEmployee = 0
+        name
+        #salary
+
+        constructor(name, salary) {
+          this.name = name
+          this.#salary = salary
+          Employee.totalEmployee++
+        }
+
+        getSalary() {
+          return this.#salary
+        }
+
+        setSalary(salary) {
+          this.#salary = salary
+        }
+
+        getName() {
+          return this.name
+        }
+
+        static getEmployeeCount() {
+          return this.totalEmployee
+        }
+
+        remove() {
+          Employee.totalEmployee--
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <script>
+      var e = []
+      e[0] = new Employee('Hal Smith', 30000)
+      e[1] = new Employee('Tim Peck', 20000)
+      e[2] = new Employee('Ari Bell', 18000)
+      // For e[0].name we expect 'Hal Smith'
+      document.writeln('e[0].name = ' + e[0].name + '<br>')
+      // For e[0].salary we expect 'undefined'
+      document.writeln('e[0].salary = ' + e[0].salary + '<br>')
+      // For e[0].getSalary() we expect 30000
+      document.writeln("e[0]'s salary = " + e[0].getSalary() + '<br>')
+      // For e[1].getName() we expect 'Tim Peck'
+      document.writeln("e[1]'s name = " + e[1].getName() + '<br>')
+      // For e[1].getSalary() we expect 20000
+      document.writeln("e[1]'s salary = " + e[1].getSalary() + '<br>')
+      // We make changes to e[1]
+      document.writeln(
+        "Changing  e[1]'s  name  to  'Tom  Beck' and " + 'salary to 25000<br>',
+      )
+      e[1].name = 'Tom Beck'
+      e[1].setSalary(25000)
+      // For e[1].getName() we now expect 'Tom Beck'
+      document.writeln("e[1]'s name = " + e[1].getName() + '<br>')
+      // For e[1].getSalary() we now expect 25000
+      document.writeln("e[1]'s salary = " + e[1].getSalary() + '<br>')
+      // For e[1].getEmployeeCount() we expect 3
+      document.writeln('Employees: ' + Employee.getEmployeeCount() + '<br>')
+
+      e[2].remove()
+      // Expected to print the number 2 now
+      document.writeln('Employees:' + Employee.getEmployeeCount() + '<br>')
+    </script>
+  </body>
+</html>

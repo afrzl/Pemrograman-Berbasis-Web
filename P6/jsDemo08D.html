@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 08D</title>
+  </head>
+  <body>
+    <script>
+      planets = ['earth']
+      planets.unshift('mercury', 'venus')
+      planets.push('mars', 'jupiter', 'saturn')
+      document.writeln('planets\@1:  ' + planets.join('  ') + '<br>')
+      last = planets.pop()
+      document.writeln('planets\@2:  ' + planets.join('  ') + '<br>')
+      first = planets.shift()
+      document.writeln('planets\@3:  ' + planets.join('  ') + '<br>')
+      document.writeln(' \@4: ' + first + ' ' + last + '<br>')
+      home = ['mercury', 'venus', 'earth'].pop()
+      document.writeln(' \@5: ' + home + '<br>')
+      number = ['earth'].push('mars')
+      document.writeln(' \@6: ' + number + '<br>')
+
+      planets.length = 2
+      document.writeln('planets\@7:  ' + planets.join('  ') + '<br>')
+      //MENAMBAHKAN METHOD SLICE AGAR ARRAY PLANETS DICOPY BUKAN DIREFER
+      list = planets.slice() // Modify this line
+      document.writeln('list \@8: ' + list.join(' ') + '<br>')
+      planets[1] = 'midgard'
+      document.writeln('list \@9: ' + list.join(' ') + '<br>')
+
+      planets = ['Bellerophon', 'Ymir', 'Osiris']
+      document.writeln('list \@10: ' + list.join(' ') + '<br>')
+      document.writeln('planets\@10:  ' + planets.join('  ') + '<br>')
+    </script>
+  </body>
+</html>

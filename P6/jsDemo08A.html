@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>JavaScript 08A: Functions</title>
+    <script id="s1">
+      function loop(max) {
+        function applyAndWrite(f, y) {
+          document.writeln(f.name, '(', y, ')  =  ', f(y), '<br>')
+        }
+        function times2(x) {
+          return 2 * x
+        }
+
+        // Code for Exercise 1e here
+        function scope(x) {
+          return i * x
+        }
+
+        function power2(x) {
+          return x ** 2
+        }
+
+        for (var i = 0; i <= max; i++) {
+          applyAndWrite(times2, i)
+          applyAndWrite(scope, i) //1e. var i yang dipakai adalah variabel yang dideclare pada for loop
+          applyAndWrite(power2, i) //1f
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script id="s2">
+      loop(2)
+      // Code for Exercise 1d here
+      // times2(6) //1d. reference error karena function times2 hanya didefinisikan di function loop
+    </script>
+    <noscript>JavaScript not supported or enabled</noscript>
+  </body>
+</html>
