@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Random Number</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      td {
+        width: 40px;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+        </tr>
+        <tr>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+        </tr>
+        <tr>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+          <td class="cell" onclick="generateNumber(this)">0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button style="margin-top: 1rem;" onclick="hitung()" type="button">
+      Hitung
+    </button>
+
+    <script>
+      function generateNumber(element) {
+        element.innerText = Math.floor(Math.random() * 9) + 1
+      }
+
+      function hitung() {
+        let cells = document.getElementsByClassName('cell')
+
+        let sum = 0
+        Array.from(cells).forEach(function (cell) {
+          sum += parseInt(cell.innerText)
+        })
+
+        alert(`Jumlah seluruh bilangan dalam papan adalah ${sum}.`)
+      }
+    </script>
+  </body>
+</html>

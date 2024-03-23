@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>JavaScript and Forms</title>
+    <script>
+      function processInput(temperature) {
+        const reg = new RegExp('^\\d+$')
+        const error = document.getElementById('error')
+
+        if (reg.test(temperature)) {
+          error.innerHTML = ''
+          return FahrenheitToCelsius(temperature)
+        } else {
+          error.innerHTML =
+            '<p style="color: red">Input hanya boleh dengan angka.</p></p></p>'
+          document.getElementById('df').focus()
+          return ''
+        }
+      }
+
+      function FahrenheitToCelsius(temperature) {
+        return (temperature - 32) / (9 / 5).toFixed(1)
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>JavaScript and Forms</h1>
+    <form name="form1" action="">
+      Temperature in Fahrenheit:
+      <input type="number" name="fahrenheit" id="df" size="10" value="0" />
+      <br />
+      Temperature in Celsius:
+      <input type="text" name="celsius" onfocus="blur();" />
+      <br />
+      <input
+        type="button"
+        name="btnConvert"
+        value="Convert"
+        onclick="document.form1.celsius.value = processInput(parseFloat(document.form1.fahrenheit.value));"
+      />
+    </form>
+    <div id="error"></div>
+  </body>
+</html>
