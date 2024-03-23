@@ -1,6 +1,6 @@
 # SiTilangSTIS
 
-### Deskripsi:
+### Deskripsi
 
 Aplikasi yang digunakan untuk membantu dalam memberikan informasi dan pencatatan mengenai adanya pelanggaran yang dilakukan oleh mahasiswa Politeknik Statistika STIS.
 
