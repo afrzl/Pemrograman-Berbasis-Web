@@ -22,7 +22,7 @@ Aplikasi yang digunakan untuk membantu dalam memberikan informasi dan pencatatan
 
 ### Views
 
-`Landing Page` : Sebagai halaman masuk dan login untuk user.
+`Landing Page` : Sebagai halaman masuk dan login untuk user.  
 `Admin` : Dibagi menjadi 2, yaitu untuk `BAAK` dan `SPD`.
 
 ### Built With
